@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desarmadero Centro - Autopartes Usadas Certificadas</title>
+    <style>
+        :root {
+            --primary: #d32f2f; /* Rojo automotor */
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 { margin: 0; font-size: 24px; color: var(--primary); }
+        
+        /* Buscador Avanzado */
+        .search-container {
+            background: white;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .search-container h2 { margin-top: 0; font-size: 20px; }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        select, button {
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button.btn-search {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button.btn-search:hover { background-color: #b71c1c; }
+
+        /* Información de Confianza */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        /* Botón de WhatsApp Flotante */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🏎️ DESARMADERO CÓRDOBA CENTRO</h1>
+        <p>Autopartes Usadas con Garantía y Oblea RUDAC legal</p>
+    </header>
+
+    <main>
+        <!-- Buscador Triple Inteligente -->
+        <section class="search-container">
+            <h2>🔎 Buscador de Repuestos Compatibles</h2>
+            <div class="filter-group">
+                <select id="marca">
+                    <option value="">1. Seleccioná la Marca</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="renault">Renault</option>
+                    <option value="volkswagen">Volkswagen</option>
+                    <option value="chevrolet">Chevrolet</option>
+                </select>
+                <select id="modelo">
+                    <option value="">2. Seleccioná el Modelo</option>
+                    <!-- Se rellenaría dinámicamente con JavaScript o WooCommerce -->
+                </select>
+                <select id="anio">
+                    <option value="">3. Seleccioná el Año</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                </select>
+            </div>
+            <button class="btn-search" onclick="buscarPieza()">Buscar Repuesto</button>
+        </section>
+
+        <!-- Carteles de Confianza (Efecto Desarmadero) -->
+        <section class="features">
+            <div class="card">
+                <h3>📋 100% Legal</h3>
+                <p>Todas nuestras piezas mecánicas y carrocería cuentan con la oblea oficial RUDAC emitida por el DNRPA.</p>
+            </div>
+            <div class="card">
+                <h3>📦 Envíos Express</h3>
+                <p>Despachamos en el día desde el centro de Córdoba a talleres locales y terminal de ómnibus hacia el interior.</p>
+            </div>
+            <div class="card">
+                <h3>🛡️ Garantía de Marcha</h3>
+                <p>Te damos 30 días de prueba en componentes eléctricos y mecánicos seleccionados para tu tranquilidad.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enlace a tu WhatsApp de atención (Reemplaza el número de ejemplo) -->
+    <a href="https://wa.me" class="whatsapp-btn" target="_blank">
+        💬 Consultar a un Repuestero
+    </a>
+
+    <script>
+        function buscarPieza() {
+            const marca = document.getElementById('marca').value;
+            const anio = document.getElementById('anio').value;
+            if(!marca || !anio) {
+                alert('Por favor selecciona al menos Marca y Año para filtrar de forma segura.');
+                return;
+            }
+            alert('Conectando con tu base de datos de Excel para buscar piezas de: ' + marca.toUpperCase() + ' año ' + anio);
+            // Aquí se conectará con el buscador de WooCommerce
+        }
+    </script>
+</body>
+</html>
